@@ -1,0 +1,20 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+
+<!-- Form per la creazione di un Account -->
+
+<lightning:card title="Create new Account"
+iconName="standard:account">
+  <div class="slds-p-round_medium">
+    <!-- Form automatico per la creazione del nuovo Account -->
+     <lightning:recordForm
+     objectApiName="Account"
+     mode="edit"
+     layoutType="Compact"
+     fields=""
+     onsuccess="{!c.handleSuccess}">
+    </lightning:recordForm>
+
+  </div>
+</lightning:card>
+
+</aura:component>

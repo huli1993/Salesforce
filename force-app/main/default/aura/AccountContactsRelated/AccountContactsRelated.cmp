@@ -1,0 +1,20 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" controller="AccountOpportunitiesController">
+
+<aura:attribute name="opportunities" type="Opportunity[]" />
+
+<!-- attributes -->
+<aura:attribute name="columns" type="List" />
+
+<!-- handlers-->
+<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+
+
+<!-- the container element determine the height of the datatable -->
+<div style="height: 300px">
+    <lightning:datatable
+            keyField="id"
+            data="{! v.opportunities }"
+            columns="{! v.columns }"/>
+</div>
+
+</aura:component>

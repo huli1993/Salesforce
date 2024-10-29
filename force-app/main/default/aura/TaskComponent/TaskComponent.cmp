@@ -1,0 +1,49 @@
+<aura:component controller="TaskLogHelper" implements="flexipage:availableForRecordHome,force:hasRecordId" access="public">
+    <aura:attribute name="task" type="Task"/>
+    <aura:attribute name="error" type="String" default=""/>
+  
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+
+    <lightning:card title="Task Details">
+        <aura:if isTrue="{!not(empty(v.error))}">
+            <div class="slds-text-color_error">{!v.error}</div>
+        </aura:if>
+
+        <aura:if isTrue="{!not(empty(v.task))}">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col"><div class="slds-truncate">Field</div></th>
+                        <th scope="col"><div class="slds-truncate">Value</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div class="slds-truncate">Subject</div></td>
+                        <td><div class="slds-truncate">{!v.task.Subject}</div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="slds-truncate">Description</div></td>
+                        <td><div class="slds-truncate">{!v.task.Description}</div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="slds-truncate">Status</div></td>
+                        <td><div class="slds-truncate">{!v.task.Status}</div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="slds-truncate">Priority</div></td>
+                        <td><div class="slds-truncate">{!v.task.Priority}</div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="slds-truncate">Owner</div></td>
+                        <td><div class="slds-truncate">{!v.task.Owner.Name}</div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </aura:if>
+
+        <aura:if isTrue="{!empty(v.task)}">
+            <div>No task details available.</div>
+        </aura:if>
+    </lightning:card>
+</aura:component>
