@@ -15,7 +15,7 @@ public class BatchableClassTest {
         // Step 2: Execute the batch
         Test.startTest();
         BatchableClass batch = new BatchableClass();
-        Database.executeBatch(batch, 2); // Batch size of 2
+        Database.executeBatch(batch, 10); // Batch size of 2 
         Test.stopTest();
 
         // Step 3: Verify that the records were deleted
